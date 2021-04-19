@@ -1,7 +1,5 @@
 name: Sasan
-on:
-   schedule:
-     - cron: '* * * * *'
+on: workflow_dispatch
 jobs:
   build:
     name: Build
