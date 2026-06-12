@@ -4,14 +4,17 @@
 # Scans VulnerableApp legacy UI and writes a JSON report consumed by the
 # benchmark.
 #
-# Usage:
-#     NETWORK=$(docker inspect $(docker compose -f docker-compose.without_llm.yml ps -q | head -1) \
-#       --format '{{range $k,$v := .NetworkSettings.Networks}}{{$k}}{{end}}')
-#     docker run --network "$NETWORK" \
-#     --user root \
-#     -v $(pwd)/benchmarks/ZAP:/zap/wrk/:rw \
-#     ghcr.io/zaproxy/zaproxy:2.17.0 \
-#     bash -c "zap.sh -cmd -addoninstallall && zap.sh -cmd -autorun /zap/wrk/zap-automation-legacy.yaml"
+# Usage (from repo root):
+#     PROJECT_NAME=$(basename "$PWD" | tr '[:upper:]' '[:lower:]' | tr -cd '[:alnum:]-_')
+#     NETWORK="${PROJECT_NAME}_default"
+#     docker run \
+#       --network "$NETWORK" \
+#       --shm-size=2g \
+#       --cap-add=SYS_ADMIN \
+#       --user root \
+#       -v "$(pwd)/benchmarks/ZAP:/zap/wrk/:rw" \
+#       ghcr.io/zaproxy/zaproxy:stable \
+#       zap.sh -addonupdate -addoninstallall -cmd -autorun /zap/wrk/zap-automation-legacy.yaml
 #
 # The JSON report is written to benchmarks/ZAP/zap-raw-report-legacy.json.
 # Run convert_zap_to_benchmark.py afterwards to produce the benchmark input.
@@ -24,13 +27,13 @@ env:
         - http://VulnerableApp-facade/VulnerableApp
       includePaths:
         - "http://VulnerableApp-facade/VulnerableApp.*"
-  parameters:
-    failOnError: false
-    failOnWarning: false
-    progressToStdout: true
-    
-jobs:
 
+parameters:
+  failOnError: false
+  failOnWarning: false
+  progressToStdout: true
+
+jobs:
   # ------------------------------------------------------------------
   # 1. Spider — crawl VulnerableApp legacy endpoints
   # ------------------------------------------------------------------
@@ -38,26 +41,42 @@ jobs:
     parameters:
       context: VulnerableApp-legacy
       url: http://VulnerableApp-facade/VulnerableApp
-      maxDuration: 20         # minutes
+      maxDuration: 20       # minutes
       maxDepth: 100
       acceptCookies: true
 
   # ------------------------------------------------------------------
   # 2. Ajax Spider — picks up JS-rendered pages the traditional spider misses
+  #
+  # FIX: chrome-headless → firefox-headless
+  # Chrome is not bundled in ghcr.io/zaproxy/zaproxy:stable.
+  # Firefox is. Using chrome-headless causes Ajax Spider to launch,
+  # find no binary, and exit instantly with 0 URLs found.
   # ------------------------------------------------------------------
   - type: spiderAjax
     parameters:
       context: VulnerableApp-legacy
       url: http://VulnerableApp-facade/VulnerableApp
-      maxDuration: 20         # minutes
+      maxDuration: 20       # minutes
       maxCrawlDepth: 20
-      browserId: chrome-headless
-      clickDefaultElems: true   
+      browserId: firefox-headless
+      clickDefaultElems: true
       clickElemsOnce: true
       randomInputs: true
 
   # ------------------------------------------------------------------
-  # 3. Active Scan — insane mode for maximum vulnerability coverage
+  # 3. Passive scan wait — ensures all passive rules finish processing
+  #    the full site tree before the active scan begins.
+  #
+  # FIX: This job was missing. Without it the active scan races against
+  #    an incomplete passive scan and may start with a partial site tree.
+  # ------------------------------------------------------------------
+  - type: passiveScan-wait
+    parameters:
+      maxDuration: 10       # minutes
+
+  # ------------------------------------------------------------------
+  # 4. Active Scan — insane mode for maximum vulnerability coverage
   # ------------------------------------------------------------------
   - type: activeScan
     parameters:
@@ -69,7 +88,10 @@ jobs:
       defaultThreshold: LOW
 
   # ------------------------------------------------------------------
-  # 4. Report — JSON format, written to benchmarks/ZAP/zap-raw-report-legacy.json
+  # 5. Report — JSON format, written to benchmarks/ZAP/zap-raw-report-legacy.json
+  #
+  # FIX: Added `informational` to risks. Missing-header and cookie alerts
+  #    are informational and may be needed for benchmark matching.
   # ------------------------------------------------------------------
   - type: report
     parameters:
@@ -82,3 +104,4 @@ jobs:
       - high
       - medium
       - low
+      - informational
