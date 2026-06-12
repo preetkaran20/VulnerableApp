@@ -58,7 +58,10 @@ jobs:
       context: VulnerableApp-legacy
       url: http://VulnerableApp-facade/VulnerableApp
       maxDuration: 20       # minutes
-      maxCrawlDepth: 20
+      maxCrawlDepth: 0
+      maxCrawlStates: 0        # unlimited
+      reloadWait: 2000
+      eventWait: 1500
       browserId: firefox-headless
       clickDefaultElems: true
       clickElemsOnce: true
