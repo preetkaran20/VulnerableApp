@@ -69,23 +69,34 @@ jobs:
         run: |
             docker run \
               --network "$NETWORK" \
-              --shm-size=4g \
-              --cap-add=SYS_ADMIN \
-              --privileged \
+              --shm-size=8g \
               --user root \
               -v "$(pwd)/benchmarks/ZAP:/zap/wrk/:rw" \
-              ghcr.io/zaproxy/zaproxy:stable \
+              ghcr.io/zaproxy/zaproxy:weekly \
               bash -c "
+                set -e
+                echo 'Installing Chromium + driver...'
                 apt-get update -qq && \
-                apt-get install -y wget gnupg && \
-                wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | gpg --dearmor -o /usr/share/keyrings/google-chrome.gpg && \
-                echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/google-chrome.gpg] https://dl.google.com/linux/chrome/deb/ stable main' > /etc/apt/sources.list.d/google-chrome.list && \
-                apt-get update -qq && \
-                apt-get install -y google-chrome-stable && \
+                apt-get install -y \
+                  chromium \
+                  chromium-driver \
+                  wget \
+                  gnupg \
+                  libnss3 \
+                  libxss1 \
+                  libasound2 \
+                  libgbm1 \
+                  libgtk-3-0 \
+                  fonts-liberation
+                echo 'Verifying installs...'
+                chromium --version || true
+                chromedriver --version || true
+                echo 'Running ZAP...'
                 zap.sh -daemon \
                   -addonupdate \
                   -addoninstallall \
-                  -autorun /zap/wrk/zap-automation-legacy.yaml"
+                  -autorun /zap/wrk/zap-automation-legacy.yaml
+              "
       # ------------------------------------------------------------
       # 6. Validate report (FIXED parsing safety)
       # ------------------------------------------------------------
