@@ -30,10 +30,7 @@ env:
     progressToStdout: true
     
 jobs:
-  - type: addOns
-    name: Install all add-ons
-    parameters:
-       action: installAll
+
   # ------------------------------------------------------------------
   # 1. Spider — crawl VulnerableApp legacy endpoints
   # ------------------------------------------------------------------
