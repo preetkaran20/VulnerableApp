@@ -69,7 +69,7 @@ jobs:
         run: |
           docker run \
             --network "$NETWORK" \
-            --shm-size=2g \
+            --shm-size=4g \
             --cap-add=SYS_ADMIN \
             --user root \
             -v "$(pwd)/benchmarks/ZAP:/zap/wrk/:rw" \
