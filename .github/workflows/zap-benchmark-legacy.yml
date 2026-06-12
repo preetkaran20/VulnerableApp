@@ -54,7 +54,7 @@ jobs:
             --shm-size=2g \
             --user root \
             -v "$(pwd)/benchmarks/ZAP:/zap/wrk/:rw" \
-            ghcr.io/zaproxy/zaproxy:2.17.0 \
+            ghcr.io/zaproxy/zaproxy:2.17.0-stable \
             bash -c "zap.sh -addonupdate -addoninstallall -cmd -autorun /zap/wrk/zap-automation-legacy.yaml"
  
       - name: Verify Legacy UI ZAP report
