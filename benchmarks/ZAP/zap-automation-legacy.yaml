@@ -26,8 +26,7 @@ env:
       urls:
         - http://VulnerableApp-facade/VulnerableApp
       includePaths:
-        - "http://VulnerableApp-facade/VulnerableApp.*"
-        - "http://VulnerableApp-base:9090.*"
+        - "http://.*"
 
 parameters:
   failOnError: false
