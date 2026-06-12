@@ -60,6 +60,7 @@ jobs:
       maxDuration: 20       # minutes
       maxCrawlDepth: 20
       browserId: firefox-headless
+      browserArguments: "-no-sandbox"
       clickDefaultElems: true
       clickElemsOnce: true
       randomInputs: true
