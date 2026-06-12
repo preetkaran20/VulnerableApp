@@ -71,7 +71,7 @@ jobs:
             --network "$NETWORK" \
             --shm-size=4g \
             --cap-add=SYS_ADMIN \
-            --privileged \          # ← test only
+            --privileged \
             --user root \
             -v "$(pwd)/benchmarks/ZAP:/zap/wrk/:rw" \
             ghcr.io/zaproxy/zaproxy:stable \
