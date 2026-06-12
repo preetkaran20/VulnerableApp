@@ -59,8 +59,7 @@ jobs:
       url: http://VulnerableApp-facade/VulnerableApp
       maxDuration: 20       # minutes
       maxCrawlDepth: 20
-      browserId: chrome-headless
-      browserArguments: "--headless=new --no-sandbox --disable-dev-shm-usage --disable-gpu --remote-debugging-port=9222"
+      browserId: firefox-headless
       clickDefaultElems: true
       clickElemsOnce: true
       randomInputs: true
