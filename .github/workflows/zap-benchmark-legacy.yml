@@ -75,9 +75,10 @@ jobs:
             -v "$(pwd)/benchmarks/ZAP:/zap/wrk/:rw" \
             ghcr.io/zaproxy/zaproxy:stable \
             bash -c "
-              zap.sh -addonupdate &&
-              zap.sh -addoninstallall &&
-              zap.sh -cmd -autorun /zap/wrk/zap-automation-legacy.yaml
+              zap.sh -daemon \
+             -addonupdate \
+             -addoninstallall \
+             -autorun /zap/wrk/zap-automation-legacy.yaml
             "
 
       # ------------------------------------------------------------
