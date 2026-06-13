@@ -45,9 +45,9 @@ jobs:
             sleep 5
           done
           echo "App failed to start"
+          ls -la
+          chmod -R 777 ./
           docker compose -f docker-compose.without_llm.yml logs
-          ls
-          chmod -R 777 benchmarks/ZAP
           exit 1
 
       # ------------------------------------------------------------
