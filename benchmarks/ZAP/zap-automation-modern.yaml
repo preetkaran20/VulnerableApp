@@ -69,7 +69,31 @@ jobs:
 
   - type: passiveScan-wait
     parameters:
-      maxDuration: 20         # minutes
+      maxDuration: 20
+      
+  - type: activeScan-config
+    parameters: {}
+    inputVectors:
+      urlQueryStringAndDataDrivenNodes:
+        enabled: true
+        addParam: true
+        odata: true
+      postData:
+        enabled: true
+        multiPartFormData: true
+        xml: true
+        json:
+          enabled: true
+          scanNullValues: true
+        googleWebToolkit: true
+        directWebRemoting: true
+      urlPath: true
+      httpHeaders:
+        enabled: true
+        allRequests: true
+      cookieData:
+        enabled: true
+      scripts: true
 
   # ------------------------------------------------------------------
   # 4. Active Scan — attack mode against discovered URLs
