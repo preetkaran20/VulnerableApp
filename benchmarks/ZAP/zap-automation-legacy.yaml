@@ -97,7 +97,7 @@ jobs:
   - type: activeScan
     parameters:
       context: VulnerableApp-legacy
-      maxRuleDurationInMins: 30
+      maxRuleDurationInMins: 60
       maxScanDurationInMins: 340
     policyDefinition:
       defaultStrength: INSANE
