@@ -53,12 +53,12 @@ jobs:
     parameters:
       context: VulnerableApp-modern
       url: http://VulnerableApp-facade
-      maxDuration: 60         # minutes
+      maxDuration: 0         # minutes
       maxCrawlDepth: 0
       maxCrawlStates: 0        # unlimited
-      numberOfBrowsers: 2
-      reloadWait: 2000
-      eventWait: 1500
+      numberOfBrowsers: 6
+      reloadWait: 3000
+      eventWait: 3000
       browserId: firefox-headless
       clickDefaultElems: true
       clickElemsOnce: false
