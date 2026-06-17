@@ -57,9 +57,9 @@ jobs:
       maxDuration: 0         # minutes
       maxCrawlDepth: 0
       maxCrawlStates: 0
-      numberOfBrowsers: 4
-      reloadWait: 2500
-      eventWait: 3500
+      numberOfBrowsers: 8
+      reloadWait: 5000
+      eventWait: 5000
       browserId: firefox-headless
       clickDefaultElems: true   
       clickElemsOnce: false
