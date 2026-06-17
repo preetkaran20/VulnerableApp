@@ -40,6 +40,7 @@ jobs:
       - name: Wait for VulnerableApp
         run: |
           echo "Waiting for VulnerableApp..."
+          sleep 120
           for i in {1..40}; do
             if curl -sf http://localhost/VulnerableApp/scanner >/dev/null; then
               echo "App is ready"
