@@ -60,8 +60,9 @@ jobs:
       eventWait: 1500
       browserId: firefox-headless
       clickDefaultElems: true
-      clickElemsOnce: true
+      clickElemsOnce: false
       randomInputs: true
+      
 
   # ------------------------------------------------------------------
   # 3. Passive Scan Wait — wait for passive scan to complete before active scan
