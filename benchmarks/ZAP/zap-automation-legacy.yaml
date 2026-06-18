@@ -50,7 +50,7 @@ jobs:
   - type: spiderClient
     parameters:
       context: VulnerableApp-legacy
-      url: http://VulnerableApp-facade
+      url: http://VulnerableApp-base:9090/VulnerableApp
       maxDuration: 120
       maxCrawlDepth: 0
       maxChildren: 0
