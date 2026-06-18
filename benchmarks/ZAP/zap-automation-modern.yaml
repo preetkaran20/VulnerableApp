@@ -69,7 +69,7 @@ jobs:
       context: VulnerableApp-modern
       url: http://VulnerableApp-facade
       maxDuration: 120         # minutes
-      maxCrawlDepth: 0
+      maxCrawlDepth: 100
       maxCrawlStates: 0        # unlimited
       numberOfBrowsers: 10
       reloadWait: 10000
@@ -155,6 +155,7 @@ jobs:
         allRequests: true
       cookieData:
         enabled: true
+        encodeCookieValues: true
       scripts: true
   # ------------------------------------------------------------------
   # 4. Active Scan — attack mode against discovered URLs
@@ -164,9 +165,12 @@ jobs:
       context: VulnerableApp-modern
       maxRuleDurationInMins: 50
       maxScanDurationInMins: 360
+      addQueryParam: true
+      injectPluginIdInHeader: true
+      scanHeadersAllRequests: true
     policyDefinition:
-      defaultStrength: INSANE
-      defaultThreshold: LOW
+      defaultStrength: insane
+      defaultThreshold: low
 
   # ------------------------------------------------------------------
   # 5. Report — JSON format, written to benchmarks/zap-raw-report.json
