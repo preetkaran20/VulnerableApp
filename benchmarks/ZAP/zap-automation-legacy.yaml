@@ -69,8 +69,8 @@ jobs:
     parameters:
       context: VulnerableApp-legacy
       url: http://VulnerableApp-base:9090/VulnerableApp
-      maxDuration: 0         # minutes
-      maxCrawlDepth: 0
+      maxDuration: 120         # minutes
+      maxCrawlDepth: 100
       maxCrawlStates: 0
       numberOfBrowsers: 10
       reloadWait: 10000
@@ -156,7 +156,9 @@ jobs:
         allRequests: true
       cookieData:
         enabled: true
-      scripts: true   
+        encodeCookieValues: true
+      scripts: true
+      
   # ------------------------------------------------------------------
   # 4. Active Scan — insane mode for maximum vulnerability coverage
   # ------------------------------------------------------------------
@@ -165,9 +167,12 @@ jobs:
       context: VulnerableApp-legacy
       maxRuleDurationInMins: 60
       maxScanDurationInMins: 340
+      addQueryParam: true
+      injectPluginIdInHeader: true
+      scanHeadersAllRequests: true
     policyDefinition:
-      defaultStrength: INSANE
-      defaultThreshold: LOW
+      defaultStrength: insane
+      defaultThreshold: low
 
   # ------------------------------------------------------------------
   # 5. Report — JSON format, written to benchmarks/ZAP/zap-raw-report-legacy.json
