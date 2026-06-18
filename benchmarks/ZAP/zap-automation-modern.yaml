@@ -78,6 +78,7 @@ jobs:
       clickDefaultElems: true
       clickElemsOnce: false
       randomInputs: true
+      enableExtensions: true
       elements:
       - "a"
       - "button"
