@@ -47,6 +47,21 @@ jobs:
       maxDepth: 100
       acceptCookies: true
 
+  - type: spiderClient
+    parameters:
+      context: VulnerableApp-modern
+      url: http://VulnerableApp-facade
+      maxDuration: 120
+      maxCrawlDepth: 0
+      maxChildren: 0
+      numberOfBrowsers: 10
+      browserId: firefox-headless
+      initialLoadTime: 10
+      pageLoadTime: 3
+      actionWaitTime: 1
+      shutdownTime: 15
+      scopeCheck: Flexible
+
   # ------------------------------------------------------------------
   # 2. Ajax Spider — picks up JS-rendered pages the traditional spider misses
   # ------------------------------------------------------------------
