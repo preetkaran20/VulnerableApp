@@ -53,7 +53,7 @@ jobs:
     parameters:
       context: VulnerableApp-modern
       url: http://VulnerableApp-facade
-      maxDuration: 0         # minutes
+      maxDuration: 120         # minutes
       maxCrawlDepth: 0
       maxCrawlStates: 0        # unlimited
       numberOfBrowsers: 8
