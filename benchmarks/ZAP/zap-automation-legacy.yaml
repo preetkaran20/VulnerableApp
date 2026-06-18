@@ -123,7 +123,8 @@ jobs:
       - "aside"
       - "details"
       - "summary"
-      - "dialog
+      - "dialog"
+      - "p"
 
   # ------------------------------------------------------------------
   # 3. Passive Scan Wait — wait for passive scan to complete before active scan
