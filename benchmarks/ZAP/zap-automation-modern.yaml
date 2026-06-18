@@ -120,7 +120,6 @@ jobs:
         - "option"
         - "textarea"
         - "form"
-      
         # --- form + controls ---
         - "label"
         - "fieldset"
@@ -134,7 +133,6 @@ jobs:
         - "ol"
         - "menu"
         - "menuitem"
-      
         # --- table interaction (sorting, row clicks in SPAs) ---
         - "table"
         - "thead"
@@ -144,7 +142,6 @@ jobs:
         - "td"
         - "th"
         - "caption"
-      
         # --- media / JS-triggered UI blocks ---
         - "img"
         - "svg"
@@ -152,7 +149,6 @@ jobs:
         - "video"
         - "audio"
         - "source"
-      
         # --- layout containers (SPAs often attach handlers here) ---
         - "div"
         - "span"
@@ -163,7 +159,6 @@ jobs:
         - "footer"
         - "main"
         - "aside"
-      
         # --- misc interactive / script hooks ---
         - "details"
         - "summary"
