@@ -81,62 +81,49 @@ jobs:
       randomInputs: true
       enableExtensions: true
       elements:
-        # --- core interactive elements (must-have) ---
-        - "a"
-        - "button"
-        - "input"
-        - "select"
-        - "option"
-        - "textarea"
-        - "form"
-      
-        # --- form + controls ---
-        - "label"
-        - "fieldset"
-        - "legend"
-        - "datalist"
-        - "output"
-      
-        # --- structural interactive lists ---
-        - "li"
-        - "ul"
-        - "ol"
-        - "menu"
-        - "menuitem"
-      
-        # --- table interaction (sorting, row clicks in SPAs) ---
-        - "table"
-        - "thead"
-        - "tbody"
-        - "tfoot"
-        - "tr"
-        - "td"
-        - "th"
-        - "caption"
-      
-        # --- media / JS-triggered UI blocks ---
-        - "img"
-        - "svg"
-        - "canvas"
-        - "video"
-        - "audio"
-        - "source"
-      
-        # --- layout containers (SPAs often attach handlers here) ---
-        - "div"
-        - "span"
-        - "section"
-        - "article"
-        - "nav"
-        - "header"
-        - "footer"
-        - "main"
-        - "aside"
-      
-        # --- misc interactive / script hooks ---
-        - "details"
-        - "summary"
-        - "dialog
+      - "a"
+      - "button"
+      - "input"
+      - "select"
+      - "option"
+      - "textarea"
+      - "form"
+      - "label"
+      - "fieldset"
+      - "legend"
+      - "datalist"
+      - "output"
+      - "li"
+      - "ul"
+      - "ol"
+      - "menu"
+      - "menuitem"
+      - "table"
+      - "thead"
+      - "tbody"
+      - "tfoot"
+      - "tr"
+      - "td"
+      - "th"
+      - "caption"
+      - "img"
+      - "svg"
+      - "canvas"
+      - "video"
+      - "audio"
+      - "source"
+      - "div"
+      - "span"
+      - "section"
+      - "article"
+      - "nav"
+      - "header"
+      - "footer"
+      - "main"
+      - "aside"
+      - "details"
+      - "summary"
+      - "dialog
 
   # ------------------------------------------------------------------
   # 3. Passive Scan Wait — wait for passive scan to complete before active scan
