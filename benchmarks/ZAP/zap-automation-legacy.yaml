@@ -49,7 +49,7 @@ jobs:
 
   - type: spiderClient
     parameters:
-      context: VulnerableApp-modern
+      context: VulnerableApp-legacy
       url: http://VulnerableApp-facade
       maxDuration: 120
       maxCrawlDepth: 0
