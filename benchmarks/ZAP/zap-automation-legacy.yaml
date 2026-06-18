@@ -26,7 +26,7 @@ env:
   contexts:
     - name: VulnerableApp-legacy
       urls:
-        - http://VulnerableApp-facade/VulnerableApp
+        - http://VulnerableApp-base:9090/VulnerableApp
       includePaths:
         - "http://VulnerableApp-facade/VulnerableApp.*"
         - "http://VulnerableApp-base:9090/VulnerableApp.*"
@@ -42,7 +42,7 @@ jobs:
   - type: spider
     parameters:
       context: VulnerableApp-legacy
-      url: http://VulnerableApp-facade/VulnerableApp
+      url: http://VulnerableApp-base:9090/VulnerableApp
       maxDuration: 20         # minutes
       maxDepth: 100
       acceptCookies: true
@@ -53,7 +53,7 @@ jobs:
   - type: spiderAjax
     parameters:
       context: VulnerableApp-legacy
-      url: http://VulnerableApp-facade/VulnerableApp
+      url: http://VulnerableApp-base:9090/VulnerableApp
       maxDuration: 0         # minutes
       maxCrawlDepth: 0
       maxCrawlStates: 0
