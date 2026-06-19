@@ -52,13 +52,13 @@ jobs:
       url: http://VulnerableApp-facade
       maxDuration: 120
       maxCrawlDepth: 0
-      maxChildren: 0
-      numberOfBrowsers: 10
+      maxChildren: 100
+      numberOfBrowsers: 15
       browserId: firefox-headless
       initialLoadTime: 10
-      pageLoadTime: 3
-      actionWaitTime: 1
-      shutdownTime: 15
+      pageLoadTime: 4
+      actionWaitTime: 2
+      shutdownTime: 60
       scopeCheck: Flexible
 
   # ------------------------------------------------------------------
@@ -68,10 +68,10 @@ jobs:
     parameters:
       context: VulnerableApp-modern
       url: http://VulnerableApp-facade
-      maxDuration: 120         # minutes
+      maxDuration: 180         # minutes
       maxCrawlDepth: 100
       maxCrawlStates: 0        # unlimited
-      numberOfBrowsers: 10
+      numberOfBrowsers: 15
       reloadWait: 10000
       eventWait: 10000
       browserId: firefox-headless
@@ -171,6 +171,10 @@ jobs:
     policyDefinition:
       defaultStrength: insane
       defaultThreshold: low
+    rules:
+      - id: 10095
+        name: Backup File Disclosure
+        threshold: OFF
 
   # ------------------------------------------------------------------
   # 5. Report — JSON format, written to benchmarks/zap-raw-report.json
