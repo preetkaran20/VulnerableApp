@@ -85,7 +85,6 @@ jobs:
               --network "$NETWORK" \
               --shm-size=8g \
               -v "$(pwd)/benchmarks/ZAP:/zap/wrk/:rw" \
-              -v "$(pwd)/src/main/resources:/zap/wrk/" \
               ghcr.io/zaproxy/zaproxy:weekly \
               bash -c "
                 echo 'Running ZAP...'
@@ -93,8 +92,6 @@ jobs:
                   -addonupdate \
                   -addoninstallall \
                   -config jwt.enableClientConfigurationScan=true \
-                  -config jwt.trustStorePath=/zap/wrk/resources/sasanlabs.p12 \
-                  -config jwt.trustStorePassword=changeIt \
                   -config fileupload.sendrequests=true \
                   -config fileupload.staticlocation.uriregex= \
                   -config fileupload.dynamiclocation.uriregex= \
