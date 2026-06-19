@@ -53,12 +53,12 @@ jobs:
       url: http://VulnerableApp-base:9090/VulnerableApp
       maxDuration: 0
       maxCrawlDepth: 0
-      maxChildren: 0
-      numberOfBrowsers: 10
+      maxChildren: 100
+      numberOfBrowsers: 15
       browserId: firefox-headless
       initialLoadTime: 10
-      pageLoadTime: 3
-      actionWaitTime: 1
+      pageLoadTime: 5
+      actionWaitTime: 3
       shutdownTime: 15
       scopeCheck: Flexible
 
@@ -69,10 +69,10 @@ jobs:
     parameters:
       context: VulnerableApp-legacy
       url: http://VulnerableApp-base:9090/VulnerableApp
-      maxDuration: 120         # minutes
-      maxCrawlDepth: 100
+      maxDuration: 200         # minutes
+      maxCrawlDepth: 150
       maxCrawlStates: 0
-      numberOfBrowsers: 10
+      numberOfBrowsers: 15
       reloadWait: 10000
       eventWait: 10000
       browserId: firefox-headless
