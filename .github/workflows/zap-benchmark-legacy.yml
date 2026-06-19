@@ -85,12 +85,21 @@ jobs:
               --network "$NETWORK" \
               --shm-size=8g \
               -v "$(pwd)/benchmarks/ZAP:/zap/wrk/:rw" \
+              -v "$(pwd)/src/main/resource/:/zap/wrk/resource/
               ghcr.io/zaproxy/zaproxy:weekly \
               bash -c "
                 echo 'Running ZAP...'
                 zap.sh -cmd \
                   -addonupdate \
                   -addoninstallall \
+                  -config jwt.enableClientConfigurationScan=true \
+                  -config jwt.trustStorePath=/zap/wrk/resource/sasanlabs.p12 \
+                  -config jwt.trustStorePassword=changeIt \
+                  -config fileupload.sendrequests=true \
+                  -config fileupload.staticlocation.uriregex= \
+                  -config fileupload.dynamiclocation.uriregex= \
+                  -config 'fileupload.parseresponse.startidentifier={"fileNameWithPath":"' \
+                  -config 'fileupload.parseresponse.endidentifier="}' \
                   -autorun /zap/wrk/zap-automation-legacy.yaml \
                   2>&1 | tee /zap/wrk/zap-scan-legacy.log
               "
