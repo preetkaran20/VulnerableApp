@@ -16,7 +16,7 @@
 | Missed (Legacy UI) | 133 |
 | **Coverage (Modern UI)** | **0.00%** |
 | **Coverage (Legacy UI)** | **5.00%** |
-| Unmatched (Modern UI) | 3758 |
+| Unmatched (Modern UI) | 2047 |
 | Unmatched (Legacy UI) | 65 |
 | Date | 2026-06-19 |
 
