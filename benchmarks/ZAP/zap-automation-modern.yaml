@@ -28,7 +28,8 @@ env:
         - http://VulnerableApp-facade
       includePaths:
         - "http://VulnerableApp-facade.*"
-        - "http://VulnerableApp-base:9090.*"
+        - "http://VulnerableApp-facade/VulnerableApp.*"
+
   parameters:
     failOnError: false
     failOnWarning: false
@@ -69,7 +70,7 @@ jobs:
       context: VulnerableApp-modern
       url: http://VulnerableApp-facade
       maxDuration: 180         # minutes
-      maxCrawlDepth: 100
+      maxCrawlDepth: 200
       maxCrawlStates: 0        # unlimited
       numberOfBrowsers: 15
       reloadWait: 10000
