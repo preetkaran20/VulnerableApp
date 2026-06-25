@@ -28,7 +28,6 @@ env:
       urls:
         - http://VulnerableApp-base:9090/VulnerableApp
       includePaths:
-        - "http://VulnerableApp-facade/VulnerableApp.*"
         - "http://VulnerableApp-base:9090/VulnerableApp.*"
   parameters:
     failOnError: false
@@ -73,8 +72,8 @@ jobs:
       maxCrawlDepth: 150
       maxCrawlStates: 0
       numberOfBrowsers: 15
-      reloadWait: 10000
-      eventWait: 10000
+      reloadWait: 5000
+      eventWait: 2000
       browserId: firefox-headless
       clickDefaultElems: true   
       clickElemsOnce: false
