@@ -17,8 +17,8 @@
 | **Coverage (Modern UI)** | **0.00%** |
 | **Coverage (Legacy UI)** | **1.43%** |
 | Unmatched (Modern UI) | 1243 |
-| Unmatched (Legacy UI) | 107 |
-| Date | 2026-06-28 |
+| Unmatched (Legacy UI) | 101 |
+| Date | 2026-06-29 |
 
 ## Why coverage is not 100%
 
