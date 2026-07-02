@@ -42,7 +42,7 @@ jobs:
     parameters:
       context: VulnerableApp-legacy
       url: http://VulnerableApp-base:9090/VulnerableApp
-      maxDuration: 20         # minutes
+      maxDuration: 30         # minutes
       maxDepth: 1000
       acceptCookies: true
 
@@ -53,7 +53,7 @@ jobs:
       maxDuration: 0
       maxCrawlDepth: 0
       maxChildren: 1000
-      numberOfBrowsers: 18
+      numberOfBrowsers: 25
       browserId: firefox-headless
       initialLoadTime: 10
       pageLoadTime: 5
@@ -71,7 +71,7 @@ jobs:
       maxDuration: 200         # minutes
       maxCrawlDepth: 1000
       maxCrawlStates: 0
-      numberOfBrowsers: 18
+      numberOfBrowsers: 25
       reloadWait: 5000
       eventWait: 2000
       browserId: firefox-headless
