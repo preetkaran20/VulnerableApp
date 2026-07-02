@@ -44,7 +44,7 @@ jobs:
       context: VulnerableApp-modern
       url: http://VulnerableApp-facade
       maxDuration: 20         # minutes
-      maxDepth: 100
+      maxDepth: 500
       acceptCookies: true
 
   - type: spiderClient
@@ -69,12 +69,12 @@ jobs:
     parameters:
       context: VulnerableApp-modern
       url: http://VulnerableApp-facade
-      maxDuration: 180         # minutes
-      maxCrawlDepth: 200
+      maxDuration: 240         # minutes
+      maxCrawlDepth: 400
       maxCrawlStates: 0        # unlimited
-      numberOfBrowsers: 15
-      reloadWait: 10000
-      eventWait: 10000
+      numberOfBrowsers: 18
+      reloadWait: 8000
+      eventWait: 2500
       browserId: firefox-headless
       clickDefaultElems: true
       clickElemsOnce: false
@@ -164,7 +164,7 @@ jobs:
   - type: activeScan
     parameters:
       context: VulnerableApp-modern
-      maxRuleDurationInMins: 50
+      maxRuleDurationInMins: 15
       maxScanDurationInMins: 360
       addQueryParam: true
       injectPluginIdInHeader: true
