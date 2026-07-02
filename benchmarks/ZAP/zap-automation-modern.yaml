@@ -54,7 +54,7 @@ jobs:
       maxDuration: 120
       maxCrawlDepth: 0
       maxChildren: 100
-      numberOfBrowsers: 15
+      numberOfBrowsers: 25
       browserId: firefox-headless
       initialLoadTime: 10
       pageLoadTime: 4
@@ -72,7 +72,7 @@ jobs:
       maxDuration: 240         # minutes
       maxCrawlDepth: 400
       maxCrawlStates: 0        # unlimited
-      numberOfBrowsers: 18
+      numberOfBrowsers: 30
       reloadWait: 8000
       eventWait: 2500
       browserId: firefox-headless
@@ -164,7 +164,7 @@ jobs:
   - type: activeScan
     parameters:
       context: VulnerableApp-modern
-      maxRuleDurationInMins: 15
+      maxRuleDurationInMins: 10
       maxScanDurationInMins: 360
       addQueryParam: true
       injectPluginIdInHeader: true
