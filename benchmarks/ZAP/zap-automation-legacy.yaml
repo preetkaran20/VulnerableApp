@@ -43,7 +43,7 @@ jobs:
       context: VulnerableApp-legacy
       url: http://VulnerableApp-base:9090/VulnerableApp
       maxDuration: 20         # minutes
-      maxDepth: 500
+      maxDepth: 1000
       acceptCookies: true
 
   - type: spiderClient
@@ -52,7 +52,7 @@ jobs:
       url: http://VulnerableApp-base:9090/VulnerableApp
       maxDuration: 0
       maxCrawlDepth: 0
-      maxChildren: 500
+      maxChildren: 1000
       numberOfBrowsers: 18
       browserId: firefox-headless
       initialLoadTime: 10
@@ -69,7 +69,7 @@ jobs:
       context: VulnerableApp-legacy
       url: http://VulnerableApp-base:9090/VulnerableApp
       maxDuration: 200         # minutes
-      maxCrawlDepth: 500
+      maxCrawlDepth: 1000
       maxCrawlStates: 0
       numberOfBrowsers: 18
       reloadWait: 5000
@@ -164,7 +164,7 @@ jobs:
   - type: activeScan
     parameters:
       context: VulnerableApp-legacy
-      maxRuleDurationInMins: 30
+      maxRuleDurationInMins: 40
       maxScanDurationInMins: 340
       addQueryParam: true
       injectPluginIdInHeader: true
