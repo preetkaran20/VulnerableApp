@@ -9,16 +9,16 @@
 | Tool | ZAP by Checkmarx |
 | Scan Type | DAST |
 | Mode | Insane (strength: INSANE, threshold: LOW) |
-| Total ground-truth vulnerabilities | 154 |
+| Total ground-truth vulnerabilities | 153 |
 | **Detected by ZAP (Modern UI)** | **0** |
-| **Detected by ZAP (Legacy UI)** | **6** |
+| **Detected by ZAP (Legacy UI)** | **7** |
 | Missed (Modern UI) | 154 |
-| Missed (Legacy UI) | 148 |
+| Missed (Legacy UI) | 146 |
 | **Coverage (Modern UI)** | **0.00%** |
-| **Coverage (Legacy UI)** | **3.90%** |
+| **Coverage (Legacy UI)** | **4.58%** |
 | Unmatched (Modern UI) | 5949 |
-| Unmatched (Legacy UI) | 120 |
-| Date | 2026-08-02 |
+| Unmatched (Legacy UI) | 131 |
+| Date | 2026-08-03 |
 
 ## Why coverage is not 100%
 
