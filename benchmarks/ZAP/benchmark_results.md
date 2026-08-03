@@ -12,11 +12,11 @@
 | Total ground-truth vulnerabilities | 153 |
 | **Detected by ZAP (Modern UI)** | **0** |
 | **Detected by ZAP (Legacy UI)** | **7** |
-| Missed (Modern UI) | 154 |
+| Missed (Modern UI) | 153 |
 | Missed (Legacy UI) | 146 |
 | **Coverage (Modern UI)** | **0.00%** |
 | **Coverage (Legacy UI)** | **4.58%** |
-| Unmatched (Modern UI) | 5949 |
+| Unmatched (Modern UI) | 4337 |
 | Unmatched (Legacy UI) | 131 |
 | Date | 2026-08-03 |
 
