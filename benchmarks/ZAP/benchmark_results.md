@@ -11,14 +11,14 @@
 | Mode | Insane (strength: INSANE, threshold: LOW) |
 | Total ground-truth vulnerabilities | 153 |
 | **Detected by ZAP (Modern UI)** | **0** |
-| **Detected by ZAP (Legacy UI)** | **9** |
+| **Detected by ZAP (Legacy UI)** | **6** |
 | Missed (Modern UI) | 153 |
-| Missed (Legacy UI) | 144 |
+| Missed (Legacy UI) | 147 |
 | **Coverage (Modern UI)** | **0.00%** |
-| **Coverage (Legacy UI)** | **5.88%** |
+| **Coverage (Legacy UI)** | **3.92%** |
 | Unmatched (Modern UI) | 37 |
-| Unmatched (Legacy UI) | 142 |
-| Date | 2026-08-23 |
+| Unmatched (Legacy UI) | 123 |
+| Date | 2026-08-24 |
 
 ## Why coverage is not 100%
 
